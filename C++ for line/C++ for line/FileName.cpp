@@ -19,7 +19,7 @@ class Line
 public:
 	Line(double a1, double a2) :a(a1), b(a2) {}
 	void print();
-	void  friend setPoint(Line& line_1, Line& line_2);
+	friend void setPoint(Line& line_1, Line& line_2);
 };
 void Line::print()
 {
