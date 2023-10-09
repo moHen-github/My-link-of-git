@@ -23,14 +23,28 @@ public:
 };
 void Line::print()
 {
-	if (a != 0 && a != 1 && a != -1)
-		cout << "y = " << a << "x + " << b << endl;
-	else if (a == 0)
-		cout << "y = " << b << endl;
-	else if (a == 1)
-		cout << "y = " << "x + " << b << endl;
+	if (b)
+	{
+		if (a != 0 && a != 1 && a != -1)
+			cout << "y = " << a << "x + " << b << endl;
+		else if (a == 0)
+			cout << "y = " << b << endl;
+		else if (a == 1)
+			cout << "y = " << "x + " << b << endl;
+		else
+			cout << "y = " << "-x + " << b << endl;
+	}
 	else
-		cout << "y = " << "-x + " << b << endl;
+	{
+		if (a != 0 && a != 1 && a != -1)
+			cout << "y = " << a << "x " << endl;
+		else if (a == 0)
+			cout << "y = 0" << endl;
+		else if (a == 1)
+			cout << "y = " << "x  " << endl;
+		else
+			cout << "y = " << "-x + " << endl;
+	}
 }
 
 void setPoint(Line& line_1, Line& line_2)
@@ -42,8 +56,10 @@ void setPoint(Line& line_1, Line& line_2)
 		cross.y = line_1.a * cross.x + line_1.b;
 		cout << "交点坐标为：" << endl << "(" << cross.x << "," << cross.y << ")" << endl;
 	}
-	else
+	else if(line_1.a == line_2.a && line_1.b != line_2.b)
 		cout << "两个直线无交点" << endl;
+	else
+		cout << "两个直线重合" << endl;
 }
 
 void main()
